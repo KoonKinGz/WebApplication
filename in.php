@@ -1,0 +1,71 @@
+<?php
+include('condb.php');
+include('conmenu.php');
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/Css" href="css/Web.css">
+<link rel="stylesheet" type="text/Css" href="css/in.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>เพิ่มรายการอาหาร</title>
+</head>
+
+<body>
+<div class="link">
+                <H3><ul>
+                        <li><a class="active" href="admin.php" target="myframe">หน้าแรก</a></li>
+                        <li><a href="elite.php" target="myframe">แจ้งยอดหมด</a></li>
+                        <li><a href="in.php" target="myframe">เพิ่มรายการอาหาร</a></li>
+                        <li><a href="day.php" target="myframe">ยอดขายต่อวัน</a></li>
+                        <li><a href="m.php" target="myframe">ยอดขายต่อเดือน</a></li>
+                        <li><a href="y.php" target="myframe">ยอดขายต่อปี</a></li>
+						<li style="float: right" target="myframe"><a href="logout.php">ออกจากระบบ</a></li>
+                    
+                        
+                      </ul></H3>
+        </div>
+        <tr><center>
+<form action="savein.php" method="post" enctype="multipart/form-data" name="form1" id="form1">
+<center><td height="300" bgcolor="#99FFCC" colspan="5">
+<form id="form1" name="form1" method="post" action="">
+<table width="795" height="49" border="1" cellpadding="5" cellspacing="0" bordercolor="#3366FF">
+<tr>
+<td width="52" bgcolor="#66CCFF" class="style7"><div align="center" class="style8">ลำดับ</div></td>
+<td width="186" bgcolor="#66CCFF" class="style7"><div align="center" class="style8">รายชื่ออาหาร</div></td>
+</tr></center>
+<tr>
+<?php while($row = $result->fetch_assoc()): ?>
+  <tr>
+   <td><?php echo $row['ID']; ?></td>
+   <td class="name">
+    <?php echo $row['name']; ?>
+   </td>
+   
+   
+ <?php endwhile ?>
+</table>
+<br>
+  
+    ชื่ออาหาร
+    <label for="name"></label>
+      <input type="text" name="name" id="name" />
+  
+    ราคา
+    <input type="text" name="prices" id="prices" />
+  
+
+<input type="submit" name="button" id="button" value="Save" />
+
+
+</form>
+<br />
+
+
+
+</center>
+
+
+
+</body>
+</html>
